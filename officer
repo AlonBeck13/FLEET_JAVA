@@ -1,0 +1,22 @@
+package il.ac.tau.cs.sw1.ex9.starfleet;
+
+public class Officer extends CrewWoman {
+
+	private OfficerRank rank1;
+		
+	public Officer(String name, int age, int yearsInService, OfficerRank rank) {
+		super(age, yearsInService, name);
+		this.rank1 = rank;
+	}
+
+	public OfficerRank getRank(){
+		return this.rank1;
+	}
+
+	@Override
+	public String toString(){
+		return super.toString()+System.lineSeparator()+"\t"+"Rank="+this.getRank();
+	}
+	
+	
+}
