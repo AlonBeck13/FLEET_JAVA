@@ -1,0 +1,23 @@
+package il.ac.tau.cs.sw1.ex9.starfleet;
+
+import java.util.List;
+import java.util.Set;
+
+public class myabstrackwarship extends myabstractship{
+
+    private List<Weapon> shipweapons;
+
+    public myabstrackwarship(String name, int commision, float speed, int fire, Set<? extends CrewMember> crew, int annual, List<Weapon> weapons){
+        super(name, commision, speed, fire, crew, annual);
+        this.shipweapons = weapons;
+    }
+
+    public List<Weapon> getWeapon(){
+        return this.shipweapons;
+    }
+    @Override
+    public String toString(){
+        return super.toString()+System.lineSeparator()+"\t"+"WeaponArray="+this.getWeapon();
+    }
+
+}
