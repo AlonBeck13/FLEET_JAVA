@@ -1,0 +1,21 @@
+package il.ac.tau.cs.sw1.ex9.starfleet;
+
+public class Cylon extends myabstractmember {
+
+	private int ModelNumber;
+
+	public Cylon(String name, int age, int yearsInService, int modelNumber) {
+		super(name, age, yearsInService);
+		this.ModelNumber = modelNumber;
+	}
+
+	public int getModelNumber(){
+		return ModelNumber;
+	}
+
+	@Override
+	public String toString(){
+		return super.toString()+System.lineSeparator()+"\t"+"ModelNumber="+this.getModelNumber();
+	}
+
+}
