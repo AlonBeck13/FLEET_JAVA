@@ -1,0 +1,38 @@
+package il.ac.tau.cs.sw1.ex9.starfleet;
+
+import java.util.List;
+import java.util.Set;
+
+public class Bomber extends myabstrackwarship{
+
+	private int overallweaponsfirepower;
+	private int overallweaponscost;
+	private int tech;
+
+	public Bomber(String name, int commissionYear, float maximalSpeed, Set<CrewMember> crewMembers, List<Weapon> weapons, int numberOfTechnicians){
+		super(name, commissionYear, maximalSpeed, 10, crewMembers, 5000, weapons);
+		this.tech = numberOfTechnicians;
+		for (Weapon a: weapons){
+			overallweaponscost += a.getAnnualMaintenanceCost();
+			overallweaponsfirepower += a.getFirePower();
+		}
+		int newcost = 0;
+		if (this.tech != 0){
+			newcost = (int) Math.floor((1-(0.1*this.tech))*overallweaponscost);
+			this.AnnualMaintanancecost += newcost;
+		}
+		else {
+			this.AnnualMaintanancecost += overallweaponscost;
+		}
+		this.Firepower += overallweaponsfirepower;
+	}
+	@Override
+	public String toString(){
+		return super.toString()+System.lineSeparator()+"\t"+"NumberOfTechnicians="+this.getNumberOfTechnicians();
+	}
+
+	public int getNumberOfTechnicians(){
+		return  this.tech;
+	}
+
+}
