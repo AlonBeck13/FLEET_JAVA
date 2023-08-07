@@ -1,0 +1,29 @@
+package il.ac.tau.cs.sw1.ex9.starfleet;
+
+import java.util.List;
+import java.util.Set;
+
+public class Fighter extends myabstrackwarship{
+
+	private int overallweaponsfirepower;
+	protected int overallweaponscost;
+	
+	public Fighter(String name, int commissionYear, float maximalSpeed, Set<? extends CrewMember> crewMembers, List<Weapon> weapons){
+		super(name, commissionYear, maximalSpeed, 10, crewMembers, 2500+((int) Math.floor(1000*maximalSpeed)), weapons );
+		for (Weapon a: weapons){
+			overallweaponsfirepower += a.getFirePower();
+			overallweaponscost += a.getAnnualMaintenanceCost();
+		}
+		this.setfirepower(overallweaponsfirepower);
+		this.setannual(overallweaponscost);
+	}
+
+	public void setfirepower(int changes){
+		this.Firepower += changes;
+	}
+
+	public void setannual(int changes1){
+		this.AnnualMaintanancecost += changes1;
+	}
+
+}
