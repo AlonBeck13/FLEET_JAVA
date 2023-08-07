@@ -1,0 +1,72 @@
+package il.ac.tau.cs.sw1.ex9.starfleet;
+
+import javax.xml.transform.Source;
+import java.util.Objects;
+import java.util.Set;
+
+public abstract class myabstractship implements Spaceship{
+
+    private String Name;
+    private int Commissionyear;
+    private float Maxspeed;
+    protected int Firepower;
+    private Set<? extends CrewMember> Crewmembers;
+    protected int AnnualMaintanancecost;
+
+    public myabstractship(String name, int commision, float speed, int fire, Set<? extends CrewMember> crew, int annual){
+        this.Name = name;
+        this.Commissionyear = commision;
+        this.Maxspeed = speed;
+        this.Firepower = fire;
+        this.Crewmembers = crew;
+        this.AnnualMaintanancecost = annual;
+    }
+
+    @Override
+    public String getName() {
+        return Name;
+    }
+
+    @Override
+    public int getCommissionYear() {
+        return Commissionyear;
+    }
+
+    @Override
+    public float getMaximalSpeed() {
+        return Maxspeed;
+    }
+
+    @Override
+    public int getFirePower() {
+        return Firepower;
+    }
+
+    public Set<? extends CrewMember> getCrewMembers(){
+        return Crewmembers;
+    }
+
+    @Override
+    public int getAnnualMaintenanceCost() {
+        return AnnualMaintanancecost;
+    }
+
+    @Override
+    public String toString(){
+        return this.getClass().getSimpleName() + System.lineSeparator() + "\t" + "Name="+this.getName()+System.lineSeparator()+"\t"+"CommissionYear="+this.getCommissionYear()+System.lineSeparator()+"\t"+"MaximalSpeed="+this.getMaximalSpeed()+System.lineSeparator()+"\t"+"FirePower="+this.getFirePower()+System.lineSeparator()+"\t"+"CrewMembers="+this.getCrewMembers().size()+System.lineSeparator()+"\t"+"AnnualMaintenanceCost="+this.getAnnualMaintenanceCost();
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hashCode(this.getName());
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof myabstractship)) return false;
+        myabstractship that = (myabstractship) o;
+        return getName().equals(that.getName());
+    }
+}
